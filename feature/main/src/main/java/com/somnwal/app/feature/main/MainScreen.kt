@@ -29,19 +29,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Devices
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
+import com.somnwal.app.core.designsystem.theme.AppTheme
 import com.somnwal.app.feature.main.ui.navigation.MainNavigator
 import com.somnwal.app.feature.main.ui.navigation.MainTab
 import com.somnwal.app.feature.main.ui.navigation.rememberMainNavigator
-import com.somnwal.app.core.designsystem.component.AppIcons
 import com.somnwal.app.feature.test.navigation.testNavGraph
 import com.somnwal.test.feature.main.R
 import kotlinx.collections.immutable.toPersistentList
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun MainScreen(
     navigator: MainNavigator = rememberMainNavigator(),
@@ -193,4 +194,17 @@ private fun RowScope.MainBottomBarItem(
             Text(text = tab.contentDescription)
         }
     )
+}
+
+@Preview(
+    device = Devices.PHONE
+)
+@Composable
+fun MainScreenPreview() {
+    AppTheme {
+        MainScreen(
+            isDarkTheme = true,
+            onChangeTheme = { }
+        )
+    }
 }

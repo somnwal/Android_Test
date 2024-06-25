@@ -1,4 +1,4 @@
-package com.somnwal.app.core.designsystem.component
+package com.somnwal.app.core.designsystem.component.icon
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AdUnits

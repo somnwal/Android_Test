@@ -14,14 +14,14 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = White,
-    onPrimary = Neon01,
-    primaryContainer = Graphite,
-    onPrimaryContainer = White,
-    inversePrimary = Green03,
-    secondary = Green04,
+    primary = Toss,
+    onPrimary = Toss,
+    primaryContainer = TossGray,
+    onPrimaryContainer = Toss,
+    inversePrimary = TossGray,
+    secondary = Toss,
     onSecondary = Green01,
-    secondaryContainer = Green04,
+    secondaryContainer = Toss,
     onSecondaryContainer = White,
     tertiary = Yellow05,
     onTertiary = Yellow01,
@@ -31,21 +31,21 @@ private val DarkColorScheme = darkColorScheme(
     onError = Red05,
     errorContainer = Red04,
     onErrorContainer = Red01,
-    surface = Graphite,
+    surface = TossGray,
     onSurface = White,
-    inverseSurface = Neon05,
-    inverseOnSurface = Black,
+    inverseSurface = TossGray, // 스낵바 색
+    inverseOnSurface = White, // 스낵바 안쪽 색
     outline = DarkGray,
-    outlineVariant = Cosmos,
-    scrim = Black,
+    outlineVariant = White,
+    scrim = White,
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Neon01,
+    primary = Toss,
     onPrimary = White,
     primaryContainer = White,
     onPrimaryContainer = Black,
-    inversePrimary = Neon01,
+    inversePrimary = Toss,
     secondary = Green04,
     onSecondary = White,
     secondaryContainer = Green01,

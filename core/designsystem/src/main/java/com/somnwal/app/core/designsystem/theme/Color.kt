@@ -44,3 +44,7 @@ val Red05 = Color(0xFF601410)
 val Red06 = Color(0xFF410E0B)
 
 val Cosmos = Color(0xFF151515)
+
+
+val Toss = Color(0xFF0064FF)
+val TossGray = Color(0xFF202632)
