@@ -47,6 +47,7 @@ internal fun TestScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .padding(paddingValues = padding)
     ) {
         var alertTestShowDialog by remember { mutableStateOf(false) }
 
@@ -57,7 +58,6 @@ internal fun TestScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues = padding)
         ) {
             CustomTitle(text = "전자서명 테스트")
 

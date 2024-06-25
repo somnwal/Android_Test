@@ -5,13 +5,10 @@ plugins {
 }
 
 android {
-    setNamespace("feature.main")
+    setNamespace("feature.test.webview")
 }
 
 dependencies {
-    implementation(projects.feature.test)
-    implementation(projects.feature.testWebview)
-
     implementation(projects.core.dataApi)
 
     implementation(libs.androidx.core.ktx)

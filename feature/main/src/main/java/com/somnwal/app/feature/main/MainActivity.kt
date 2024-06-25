@@ -7,8 +7,8 @@ import androidx.activity.viewModels
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.somnwal.app.core.designsystem.theme.AppTheme
-import com.somnwal.app.feature.main.ui.navigation.MainNavigator
-import com.somnwal.app.feature.main.ui.navigation.rememberMainNavigator
+import com.somnwal.app.feature.main.navigation.MainNavigator
+import com.somnwal.app.feature.main.navigation.rememberMainNavigator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

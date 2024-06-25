@@ -35,10 +35,11 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import com.somnwal.app.core.designsystem.theme.AppTheme
-import com.somnwal.app.feature.main.ui.navigation.MainNavigator
-import com.somnwal.app.feature.main.ui.navigation.MainTab
-import com.somnwal.app.feature.main.ui.navigation.rememberMainNavigator
+import com.somnwal.app.feature.main.navigation.MainNavigator
+import com.somnwal.app.feature.main.navigation.MainTab
+import com.somnwal.app.feature.main.navigation.rememberMainNavigator
 import com.somnwal.app.feature.test.navigation.testNavGraph
+import com.somnwal.app.feature.test.webview.navigation.testWebViewNavGraph
 import com.somnwal.test.feature.main.R
 import kotlinx.collections.immutable.toPersistentList
 import kotlinx.coroutines.launch
@@ -91,6 +92,11 @@ internal fun MainScreen(
 
                     // 테스트 화면 네비게이션 그래프
                     testNavGraph(
+                        padding = padding,
+                        onShowErrorSnackbar = onShowErrorSnackBar
+                    )
+
+                    testWebViewNavGraph(
                         padding = padding,
                         onShowErrorSnackbar = onShowErrorSnackBar
                     )

@@ -1,4 +1,4 @@
-package com.somnwal.app.feature.main.ui.navigation
+package com.somnwal.app.feature.main.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -9,6 +9,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.somnwal.app.feature.test.navigation.navigateToTest
+import com.somnwal.app.feature.test.webview.navigation.navigateToTestWebView
 
 internal class MainNavigator(
     val navController: NavHostController
@@ -38,6 +39,7 @@ internal class MainNavigator(
 
         when(tab) {
             MainTab.TEST -> navController.navigateToTest(navOptions)
+            MainTab.TEST_WEBVIEW -> navController.navigateToTestWebView(navOptions)
         }
     }
 
