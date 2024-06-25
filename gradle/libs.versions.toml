@@ -48,6 +48,9 @@ protobufPlugin = "0.9.4"
 googleOss = "17.0.1"
 googleOssPlugin = "0.10.6"
 
+# Lottie
+lottie = "5.2.0"
+
 ## Test
 junit = "4.13.2"
 junitExt = "1.1.5"
@@ -126,6 +129,9 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 coil-kt-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
+
+# Lottie-Compose
+lottie-compose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottie" }
 
 # Test
 junit = { group = "junit", name = "junit", version.ref = "junit" }

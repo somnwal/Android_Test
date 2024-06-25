@@ -40,6 +40,7 @@ import com.somnwal.app.feature.main.navigation.MainTab
 import com.somnwal.app.feature.main.navigation.rememberMainNavigator
 import com.somnwal.app.feature.test.navigation.testNavGraph
 import com.somnwal.app.feature.test.webview.navigation.testWebViewNavGraph
+import com.somnwal.app.test.lottie.navigation.testLottieNavGraph
 import com.somnwal.test.feature.main.R
 import kotlinx.collections.immutable.toPersistentList
 import kotlinx.coroutines.launch
@@ -74,7 +75,7 @@ internal fun MainScreen(
                 visible = navigator.shouldShowAppBar(),
                 title = {
                     Text(
-                        text = "테스트"
+                        text = navigator.currentTab?.contentDescription ?: ""
                     )
                 }
             )
@@ -92,6 +93,11 @@ internal fun MainScreen(
 
                     // 테스트 화면 네비게이션 그래프
                     testNavGraph(
+                        padding = padding,
+                        onShowErrorSnackbar = onShowErrorSnackBar
+                    )
+
+                    testLottieNavGraph(
                         padding = padding,
                         onShowErrorSnackbar = onShowErrorSnackBar
                     )

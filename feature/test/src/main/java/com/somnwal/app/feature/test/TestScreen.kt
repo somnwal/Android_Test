@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -49,15 +51,18 @@ internal fun TestScreen(
             .fillMaxSize()
             .padding(paddingValues = padding)
     ) {
+        val scrollState = rememberScrollState()
+
         var alertTestShowDialog by remember { mutableStateOf(false) }
 
         var loadingBarTestShowLoadingBar by remember { mutableStateOf(false) }
         val laodingBarTestCoroutineScope = rememberCoroutineScope()
 
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .padding(8.dp)
+                .verticalScroll(scrollState)
         ) {
             CustomTitle(text = "전자서명 테스트")
 
@@ -72,12 +77,41 @@ internal fun TestScreen(
                 onValueChange = { }
             )
 
+            CustomTextField(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(
+                        horizontal = 4.dp
+                    ),
+                label = "전자서명문",
+                value = "",
+                onValueChange = { }
+            )
+
             CustomButton(
                 modifier = Modifier
                     .fillMaxWidth(),
                 text = "전자서명",
                 onClick = {
 
+                }
+            )
+
+            CustomTitle(text = "백그라운드/포그라운드 테스트")
+
+            CustomButton(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                text = "백그라운드 서비스 테스트",
+                onClick = {
+                }
+            )
+
+            CustomButton(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                text = "포그라운드 서비스 테스트",
+                onClick = {
                 }
             )
 

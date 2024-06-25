@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.somnwal.app.feature.test.navigation.navigateToTest
 import com.somnwal.app.feature.test.webview.navigation.navigateToTestWebView
+import com.somnwal.app.test.lottie.navigation.navigateToTestLottie
 
 internal class MainNavigator(
     val navController: NavHostController
@@ -39,12 +40,9 @@ internal class MainNavigator(
 
         when(tab) {
             MainTab.TEST -> navController.navigateToTest(navOptions)
+            MainTab.TEST_LOTTIE -> navController.navigateToTestLottie(navOptions)
             MainTab.TEST_WEBVIEW -> navController.navigateToTestWebView(navOptions)
         }
-    }
-
-    fun popBackStack() {
-        navController.popBackStack()
     }
 
     @Composable

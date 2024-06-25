@@ -5,19 +5,17 @@ plugins {
 }
 
 android {
-    setNamespace("feature.main")
+    setNamespace("feature.test.lottie")
 }
 
 dependencies {
-    implementation(projects.feature.test)
-    implementation(projects.feature.testWebview)
-    implementation(projects.feature.testLottie)
-
     implementation(projects.core.dataApi)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activity.compose)
+
+    implementation(libs.lottie.compose)
 
     implementation(libs.androidx.compose.navigation)
 

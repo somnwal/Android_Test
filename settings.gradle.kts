@@ -34,5 +34,6 @@ include(
 include(
     ":feature:main",
     ":feature:test",
-    ":feature:test-webview"
+    ":feature:test-webview",
+    ":feature:test-lottie"
 )
