@@ -11,6 +11,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.somnwal.app.core.designsystem.theme.Toss
@@ -20,6 +21,7 @@ import com.somnwal.app.core.designsystem.theme.White
 fun CustomButton(
     modifier: Modifier = Modifier,
     text: String,
+    color: Color? = null,
     onClick: () -> Unit
 ) {
     Button(
@@ -27,8 +29,7 @@ fun CustomButton(
             .padding(4.dp),
         shape = RoundedCornerShape(8.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = Toss,
-            contentColor = White
+            containerColor = color?.let { color } ?: Toss,
         ),
         onClick = onClick,
     ) {

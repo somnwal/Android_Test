@@ -14,8 +14,8 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Toss,
-    onPrimary = Toss,
+    primary = Toss, // 버튼 등 주요 색
+    onPrimary = White, // 버튼 안쪽 텍스트 색
     primaryContainer = TossGray,
     onPrimaryContainer = Toss,
     inversePrimary = TossGray,
