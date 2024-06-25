@@ -2,7 +2,7 @@ import com.somnwal.app.common.APPLICATION_ID
 import com.somnwal.app.common.setNamespace
 
 plugins {
-    id("somnwal.android.application")
+    alias(libs.plugins.somnwal.android.application)
 }
 
 android {

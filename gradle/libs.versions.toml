@@ -152,7 +152,9 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 
 protobuf = { id = "com.google.protobuf", version.ref = "protobufPlugin" }
 
-
 somnwal-android-application = { id = "somnwal.android.application", version = "unspecified" }
-somnwal-android-library = { id = "somnwal.kakaobank.android.library", version = "unspecified" }
-somnwal-android-hilt = { id = "somnwal.kakaobank.android.hilt", version = "unspecified" }
+somnwal-kotlin-library = { id = "somnwal.kotlin.library", version = "unspecified" }
+somnwal-android-library = { id = "somnwal.android.library", version = "unspecified" }
+somnwal-android-hilt = { id = "somnwal.android.hilt", version = "unspecified" }
+somnwal-android-compose = { id = "somnwal.android.compose", version = "unspecified" }
+somnwal-android-feature = { id = "somnwal.android.feature", version = "unspecified" }

@@ -1,6 +1,7 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    id("somnwal.kotlin.library")
+    alias(libs.plugins.somnwal.kotlin.library)
+
     id("kotlinx-serialization")
 }
 

@@ -5,12 +5,10 @@ plugins {
 }
 
 android {
-    setNamespace("feature.main")
+    setNamespace("feature.test")
 }
 
 dependencies {
-    implementation(projects.feature.test)
-
     implementation(projects.core.dataApi)
 
     implementation(libs.androidx.core.ktx)

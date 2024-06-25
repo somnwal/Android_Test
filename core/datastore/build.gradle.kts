@@ -1,8 +1,9 @@
 import com.somnwal.app.common.setNamespace
 
 plugins {
-    id("somnwal.android.library")
-    id("somnwal.android.hilt")
+    alias(libs.plugins.somnwal.android.library)
+    alias(libs.plugins.somnwal.android.hilt)
+
     id("kotlinx-serialization")
 }
 
