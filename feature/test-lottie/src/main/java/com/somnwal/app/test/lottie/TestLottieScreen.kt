@@ -3,16 +3,17 @@ package com.somnwal.app.feature.test.webview
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,21 +50,46 @@ internal fun TestLottieScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(8.dp)
-                .verticalScroll(scrollState),
+                .padding(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            val lottieTest1 = rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.lottietest))
+            var lottieTestIndex by remember { mutableIntStateOf(0) }
 
-            LottieAnimation(composition = lottieTest1.value)
+            val lottieTestList = listOf(
+                rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.lottie_test_1)),
+                rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.lottie_test_2)),
+                rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.lottie_test_3)),
+            )
 
-            CustomButton(
+            Row(
                 modifier = Modifier
-                    .fillMaxSize(),
-                text = "로띠 테스트 1",
-                onClick = {
+                    .fillMaxWidth()
+                    .height(200.dp)
+            ) {
+                LottieAnimation(
+                    composition = lottieTestList[lottieTestIndex].value,
+                    isPlaying = true,
+                    iterations = 10000,
+                    restartOnPlay = true
+                )
+            }
 
-                })
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(scrollState)
+            ) {
+                for(index: Int in lottieTestList.indices) {
+                    CustomButton(
+                        modifier = Modifier
+                            .fillMaxSize(),
+                        text = "로띠 테스트 ${index + 1}",
+                        onClick = {
+                            lottieTestIndex = index
+                        }
+                    )
+                }
+            }
         }
     }
 }
