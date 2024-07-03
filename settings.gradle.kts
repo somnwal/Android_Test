@@ -28,7 +28,8 @@ include(
     ":core:datastore-proto",
     ":core:designsystem",
     ":core:model",
-    ":core:domain"
+    ":core:domain",
+    ":core:common"
 )
 
 include(

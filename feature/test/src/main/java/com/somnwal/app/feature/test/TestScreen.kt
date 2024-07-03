@@ -3,14 +3,11 @@ package com.somnwal.app.feature.test
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.AlertDialog
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -18,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.somnwal.app.core.designsystem.component.common.CustomButton
@@ -26,9 +24,13 @@ import com.somnwal.app.core.designsystem.component.common.CustomLoadingBar
 import com.somnwal.app.core.designsystem.component.common.CustomTextField
 import com.somnwal.app.core.designsystem.component.common.CustomTitle
 import com.somnwal.app.core.designsystem.theme.AppTheme
-import kotlinx.coroutines.CoroutineScope
+import com.somnwal.test.feature.test.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.security.KeyFactory
+import java.security.Signature
+import java.security.spec.PKCS8EncodedKeySpec
+import java.util.Base64
 
 @Composable
 internal fun TestRoute(
@@ -52,6 +54,7 @@ internal fun TestScreen(
             .padding(paddingValues = padding)
     ) {
         val scrollState = rememberScrollState()
+        val localContext = LocalContext.current
 
         var alertTestShowDialog by remember { mutableStateOf(false) }
 
@@ -64,7 +67,20 @@ internal fun TestScreen(
                 .padding(8.dp)
                 .verticalScroll(scrollState)
         ) {
+            /** ====================================================================================
+             * 전자서명 테스트
+             * ================================================================================== */
             CustomTitle(text = "전자서명 테스트")
+
+            var plainText by remember { mutableStateOf("") }
+            var signedText by remember { mutableStateOf("") }
+
+//            // 개인키 생성
+//            val keyBytes = localContext.resources.openRawResource(R.raw.private_key).readBytes() // 개인키 불러오기
+//            val keySpec = PKCS8EncodedKeySpec(keyBytes) // 키 스펙 생성
+//
+//            val keyFactory = KeyFactory.getInstance("RSA")  // RSA 키 팩토리 생성
+//            val privateKey = keyFactory.generatePrivate(keySpec)
 
             CustomTextField(
                 modifier = Modifier
@@ -73,8 +89,10 @@ internal fun TestScreen(
                         horizontal = 4.dp
                     ),
                 label = "원문",
-                value = "",
-                onValueChange = { }
+                value = plainText,
+                onValueChange = {
+                    plainText = it
+                }
             )
 
             CustomTextField(
@@ -84,19 +102,40 @@ internal fun TestScreen(
                         horizontal = 4.dp
                     ),
                 label = "전자서명문",
-                value = "",
-                onValueChange = { }
+                value = signedText,
+                onValueChange = {
+                    signedText = it
+                }
             )
 
             CustomButton(
                 modifier = Modifier
                     .fillMaxWidth(),
-                text = "전자서명",
+                text = "원문 --> 전자서명문",
+                onClick = {
+//                    // 서명
+//                    val signature = Signature.getInstance("SHA256withRSA")
+//
+//                    signature.initSign(privateKey)
+//                    signature.update(plainText.toByteArray())
+//
+//                    // Base64로 인코딩
+//                    signedText = Base64.getEncoder().encodeToString(signature.sign())
+                }
+            )
+
+            CustomButton(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                text = "전자서명문 --> 원문",
                 onClick = {
 
                 }
             )
 
+            /** ====================================================================================
+             * 백그라운드/포그라운드 테스트
+             * ================================================================================== */
             CustomTitle(text = "백그라운드/포그라운드 테스트")
 
             CustomButton(
@@ -115,6 +154,9 @@ internal fun TestScreen(
                 }
             )
 
+            /** ====================================================================================
+             * 기본 테스트
+             * ================================================================================== */
             CustomTitle(text = "기본 테스트")
 
             CustomButton(
