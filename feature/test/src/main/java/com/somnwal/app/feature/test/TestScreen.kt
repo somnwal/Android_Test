@@ -24,6 +24,8 @@ import com.somnwal.app.core.designsystem.component.common.CustomLoadingBar
 import com.somnwal.app.core.designsystem.component.common.CustomTextField
 import com.somnwal.app.core.designsystem.component.common.CustomTitle
 import com.somnwal.app.core.designsystem.theme.AppTheme
+import com.somnwal.app.feature.test.testcase.BackgroundForegroundTest
+import com.somnwal.app.feature.test.testcase.BasicTest
 import com.somnwal.test.feature.test.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -54,9 +56,6 @@ internal fun TestScreen(
             .padding(paddingValues = padding)
     ) {
         val scrollState = rememberScrollState()
-        val localContext = LocalContext.current
-
-        var alertTestShowDialog by remember { mutableStateOf(false) }
 
         var loadingBarTestShowLoadingBar by remember { mutableStateOf(false) }
         val laodingBarTestCoroutineScope = rememberCoroutineScope()
@@ -67,68 +66,13 @@ internal fun TestScreen(
                 .padding(8.dp)
                 .verticalScroll(scrollState)
         ) {
+            BackgroundForegroundTest(
 
-            /** ====================================================================================
-             * 백그라운드/포그라운드 테스트
-             * ================================================================================== */
-            CustomTitle(text = "백그라운드/포그라운드 테스트")
-
-            CustomButton(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                text = "백그라운드 서비스 테스트",
-                onClick = {
-                }
             )
 
-            CustomButton(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                text = "포그라운드 서비스 테스트",
-                onClick = {
-                }
-            )
-
-            /** ====================================================================================
-             * 기본 테스트
-             * ================================================================================== */
-            CustomTitle(text = "기본 테스트")
-
-            CustomButton(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                text = "알럿 테스트",
-                onClick = {
-                    alertTestShowDialog = true
-                }
-            )
-
-            // 알럿 다이얼로그
-            CustomDialog(
-                visible = alertTestShowDialog,
-                title = "알림",
-                content = "테스트 알럿 표시됨",
-                confirmButtonText = "확인",
-                cancelButtonText = "취소",
-                onConfirm = { alertTestShowDialog = false },
-                onCancel = { alertTestShowDialog = false },
-                onDismiss = { alertTestShowDialog = false }
-            )
-
-            CustomButton(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                text = "에러 스낵바 테스트",
-                onClick = {
-                    onShowErrorSnackbar(Throwable("테스트 오류"))
-                }
-            )
-
-            CustomButton(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                text = "로딩바 테스트 (1초)",
-                onClick = {
+            BasicTest(
+                onShowErrorSnackbar = onShowErrorSnackbar,
+                doLoadingBarTest = {
                     laodingBarTestCoroutineScope.launch {
                         loadingBarTestShowLoadingBar = true
                         delay(1000)
